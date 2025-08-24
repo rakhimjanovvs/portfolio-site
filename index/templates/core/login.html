@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}Вход{% endblock %}
 
 {% block content %}
 <div class="reg-container">
@@ -10,6 +10,7 @@
       {% csrf_token %}
       {{ form.as_p }}
       <button class="button" type="submit">Войти</button>
+      <p>Нет аккаунта? Можете <a href="{% url 'register' %}">Зарегистрироваться</a></p>
     </form>
   </div>
 </div>
