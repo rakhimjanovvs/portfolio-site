@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>Проекты по категории {{ category }}</h1>
+<hr>
+{% for p in projects %}
+<a href="/projects/{{ p.slug }}">{{ p }}</a>
+{% endfor %}
+{% endblock %}

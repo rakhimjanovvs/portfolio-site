@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<div class="container flex-direction-column">
+    <p class="welcome_text">Что можете заказывать?!</p>
+    <p class="job">Мои услуги</p>
+    <p class="main_text">Обучался в TEHNIKUM SCHOOL и cпециализируюсь на python, backend- и fullstack-разработке, использую современные технологии, асинхронность и подхожу к работе с вниманием к архитектуре, чистоте кода и производительности. Регулярно работаю как над собственными проектами, так и над заказными.</p>
+</div>
+<div class="service-blocks">
+    <div class="service-block">
+        <i class="service-block-icons fa-solid fa-globe"></i>
+        <h2>Web разработка</h2>
+        <p>Создание современных и адаптивных сайтов с использованием HTML, CSS, Python и Django. Оптимизация под разные устройства и задачи.</p>
+    </div>
+    <div class="service-block">
+        <i class="service-block-icons fa-solid fa-database"></i>
+        <h2>Работа с база данными</h2>
+        <p>Проектирование, настройка и администрирование баз данных. Оптимизация запросов и обеспечение надежного хранения данных.</p>
+    </div>
+    <div class="service-block">
+        <i class="service-block-icons fa-brands fa-telegram"></i>
+        <h2>Разработка телеграм ботов</h2>
+        <p>Создание умных ботов для автоматизации задач, поддержки клиентов и интеграции с сервисами. Более 5 реализованных проектов.</p>
+    </div>
+    <div class="service-block">
+        <i class="service-block-icons fa-solid fa-image"></i>
+        <h2>Ландшафтный дизайн</h2>
+        <p>Проектирование и визуализация красивых, функциональных и удобных ландшафтных решений для частных и коммерческих территорий.</p>
+    </div>
+</div>
+<div class="main_block">
+    <a class="button" href="{% url 'contact' %}">Связаться со мной</a>
+</div>
+{% endblock %}

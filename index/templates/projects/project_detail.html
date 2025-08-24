@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<div class="container flex-direction-column">
+<h1>{{ project.project_name }}</h1>
+{% if project.project_image %}
+    <img class="img-about-page" src="{{ project.project_image.url }}" alt="{{ project.project_name }}">
+{% endif %}
+<p>{{ project.project_description }}</p>
+<p>Категория: {{ project.project_category }}</p>
+<a class="project-url" href="{{ project.project_url }}">Ссылка на сайт</a>
+<a class="project-url" href="{{ project.github_url }}"><i class="devicon-github-original"></i></a>
+<p>{{ project.added_date }}</p>
+<p>{{ project.updated_date }}</p>
+<a class="button" href="{% url 'project_list' %}">← Назад к проектам</a>
+</div>
+
+{% endblock %}

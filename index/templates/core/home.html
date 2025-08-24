@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="main_block">
+        <img src="media/projects/ava.JPG" alt="">
+        <p class="welcome_text">Здравствуйте! Я Рахимжонов Фозилжон</p>
+        <p class="job">backend developer</p>
+        <p class="about_me_text">Я backend-разработчик с опытом создания надежных и масштабируемых веб-приложений более одного года. Обучался в TEHNIKUM SCHOOL и специализируюсь на написании чистого и эффективного серверного кода.</p>
+        <a class="button" href="{% url 'contact' %}">Связаться со мной</a>
+    </div>
+</div>
+{% endblock %}

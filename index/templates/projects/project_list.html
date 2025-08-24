@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container flex-direction-column">
+    <p class="welcome_text">Мое портфолио</p>
+    <p class="job">Мои последние работы</p>
+    <p class="main_text">В портфолио вы можете увидеть примеры моих проектов. Они демонстрируют мой подход к разработке: практичность, чистый код и ориентированность на результат.</p>
+</div>
+
+<div class="projects">
+    {% for project in projects %}
+        <div class="project-block">
+            {% if project.project_image %}
+                <img class="project-image" src="{{ project.project_image.url }}" alt="{{ project.project_image }}">
+            {% endif %}
+            <div class="project-card">
+                <h2 class="project-name">{{ project.project_name }}</h2>
+                <p class="project-description">{{ project.project_description|truncatewords:20 }}</p>
+                <a class="project-url" href="{{ project.project_url }}">Ссылка на сайт</a>
+                <a class="project-slug" href="{% url 'project_detail' slug=project.slug %}">Подробнее</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

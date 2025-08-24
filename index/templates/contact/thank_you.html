@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container flex-direction-column">
+    <h2 class="job">Спасибо за ваше сообщение!</h2>
+    <a class="welcome_text button" href="{% url 'home_page' %}">Вернуться на главную</a>
+</div>
+
+
+{% endblock %}

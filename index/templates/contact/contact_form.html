@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<h1>Обратная связь</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.message.label_tag }}<br>
+    {{ form.message }}<br><br>
+    <button type="submit">Отправить</button>
+</form>
+
+
+{% endblock %}

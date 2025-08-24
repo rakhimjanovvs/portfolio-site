@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<div class="container flex-direction-column">
+    <p class="welcome_text">Введение</p>
+    <p class="job">Обо мне</p>
+</div>
+<div class="container">
+        <img class="img-about-page" src="/media/projects/ava2.JPG" alt="">
+        <div class="about-page-main flex-direction-column">
+            <p>Я backend-разработчик с опытом создания надежных и масштабируемых веб-приложений более одного года. Обучался в TEHNIKUM SCHOOL и специализируюсь на написании чистого и эффективного серверного кода.</p>
+            <div class="about-blocks">
+                <div class="about-block">
+                    <span class="material-icons">code</span>
+                    <h2>Языки</h2>
+                    <p>HTML, CSS, Python, Django</p>
+                </div>
+                <div class="about-block">
+                    <span class="material-icons">school</span>
+                    <h2>Обучение</h2>
+                    <p>TEHNIKUM SCHOOL | backand developer course</p>
+                </div>
+                <div class="about-block">
+                    <span class="material-icons">work</span>
+                    <h2>Проекты</h2>
+                    <p>Имеется более пяти проектов</p>
+                </div>
+            </div>
+            <p>Программы которые использую</p>
+            <div class="tools">
+                <img class="tools-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg"/>
+                <img class="tools-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
+                <img class="tools-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+                <img class="tools-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" />
+                <img class="tools-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
+            </div>
+        </div>
+</div>
+{% endblock %}

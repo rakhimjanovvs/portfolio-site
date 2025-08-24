@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="header">
+  <nav class="container">
+      <div class="logo">
+          <a href="{% url 'home_page' %}">RAKHIMJONOV<p>.</p></a>
+      </div>
+      <ul class="navbar navbar_list">
+          <li><a href="{% url 'home_page' %}" class="{% if page == 'home' %}active{% endif %}">Главная</a></li>
+          <li><a href="{% url 'about' %}" class="{% if page == 'about' %}active{% endif %}">Обо мне</a></li>
+          <li><a href="{% url 'service_list' %}" class="{% if page == 'service' %}active{% endif %}">Услуги</a></li>
+          <li><a href="{% url 'project_list' %}" class="{% if page == 'projects' %}active{% endif %}">Мои работы</a></li>
+      </ul>
+      <div class="register_block">
+          {% if user.is_authenticated %}
+          <ul class="navbar_list reg_log">
+            <li><a href="{% url 'feedback' %}" class="{% if page == 'feedback' %}active{% endif %}">Оставить заявку</a></li>
+            <li>
+              <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="logout_button">Выйти</button>
+              </form>
+            </li>
+          </ul>
+          {% else %}
+          <ul class="navbar_list reg_log">
+              <li><a href="{% url 'login' %}">Войти</a></li>
+              <li><a href="{% url 'register' %}">Регистрация</a></li>
+          </ul>
+          {% endif %}
+      <button id="theme-toggle" aria-pressed="false" title="Переключить тему">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+      </div>
+  </nav>
+</header>
+
+<script>
+    // Оборачиваем в IIFE, чтобы точно запускалось после загрузки HTML
+    (function () {
+      const root = document.documentElement;
+      const btn  = document.getElementById('theme-toggle');
+      const ico  = document.getElementById('theme-icon');
+
+      if (!btn || !ico) { console.error('Нет кнопки или иконки с нужными id'); return; }
+
+      const saved = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      applyTheme(saved || (systemPrefersDark ? 'dark' : 'light'));
+
+      btn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const isDark = theme === 'dark';
+        btn.setAttribute('aria-pressed', isDark);
+        ico.textContent = isDark ? '☀️' : '🌙';
+        btn.title = isDark ? 'Светлая тема' : 'Тёмная тема';
+      }
+    })();
+</script>
+
+</body>
+</html>
